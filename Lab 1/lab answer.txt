@@ -1,0 +1,95 @@
+ petid <- c(1:6)
+ petname <- c("Salapou","Namwan","Milo","Jacky","Fufu","Khaimook")
+pettype <- c(1,2,2,1,1,2)
+petweight <- c(12,15,14,13.5,11.6,16)
+pet <- data.frame(petid,petname,pettype,petweight)
+pet
+  petid  petname pettype petweight
+1     1  Salapou       1      12.0
+2     2   Namwan       2      15.0
+3     3     Milo       2      14.0
+4     4    Jacky       1      13.5
+5     5     Fufu       1      11.6
+6     6 Khaimook       2      16.0
+> class(petid)
+[1] "integer"
+> class(petname)
+[1] "character"
+> class(pettype)
+[1] "numeric"
+> class(petweight)
+[1] "numeric"
+ pet$pettype <- factor(pet$pettype)
+ pet
+  petid  petname pettype petweight
+1     1  Salapou       1      12.0
+2     2   Namwan       2      15.0
+3     3     Milo       2      14.0
+4     4    Jacky       1      13.5
+5     5     Fufu       1      11.6
+6     6 Khaimook       2      16.0
+> str(pet)
+'data.frame':   6 obs. of  4 variables:
+ $ petid    : int  1 2 3 4 5 6
+ $ petname  : chr  "Salapou" "Namwan" "Milo" "Jacky" ...
+ $ pettype  : Factor w/ 2 levels "1","2": 1 2 2 1 1 2
+ $ petweight: num  12 15 14 13.5 11.6 16
+pet$petname
+[1] "Salapou"  "Namwan"   "Milo"     "Jacky"    "Fufu"     "Khaimook"
+pet[,c(1,2)]
+  petid  petname
+1     1  Salapou
+2     2   Namwan
+3     3     Milo
+4     4    Jacky
+5     5     Fufu
+6     6 Khaimook
+pet[4,]
+  petid petname pettype petweight
+4     4   Jacky       1      13.5
+pet[c(2,3,4,6),]
+  petid  petname pettype petweight
+2     2   Namwan       2      15.0
+3     3     Milo       2      14.0
+4     4    Jacky       1      13.5
+6     6 Khaimook       2      16.0
+ pet$petheight <- c(50,60,55,57,63,57)
+str(pet)
+'data.frame':   6 obs. of  5 variables:
+ $ petid    : int  1 2 3 4 5 6
+ $ petname  : chr  "Salapou" "Namwan" "Milo" "Jacky" ...
+ $ pettype  : Factor w/ 2 levels "1","2": 1 2 2 1 1 2
+ $ petweight: num  12 15 14 13.5 11.6 16
+ $ petheight: num  50 60 55 57 63 57
+> pet
+  petid  petname pettype petweight petheight
+1     1  Salapou       1      12.0        50
+2     2   Namwan       2      15.0        60
+3     3     Milo       2      14.0        55
+4     4    Jacky       1      13.5        57
+5     5     Fufu       1      11.6        63
+6     6 Khaimook       2      16.0        57
+ pet[pet$petid==5, "pettype"] <- 2
+ pet
+  petid  petname pettype petweight petheight
+1     1  Salapou       1      12.0        50
+2     2   Namwan       2      15.0        60
+3     3     Milo       2      14.0        55
+4     4    Jacky       1      13.5        57
+5     5     Fufu       2      11.6        63
+6     6 Khaimook       2      16.0        57
+> pet[pet$petid==6, "pettype"] <- 1
+> pet
+  petid  petname pettype petweight petheight
+1     1  Salapou       1      12.0        50
+2     2   Namwan       2      15.0        60
+3     3     Milo       2      14.0        55
+4     4    Jacky       1      13.5        57
+5     5     Fufu       2      11.6        63
+6     6 Khaimook       1      16.0        57
+
+pet[7,] <- c(7,"Slerpy",1,9,77)
+ pet
+
+ pet$pettype <- factor(pet$pettype)
+pet
