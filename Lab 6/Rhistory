@@ -1,0 +1,378 @@
+qnorm(1-0.1)
+qnorm(1-0.05)
+n.for.2means(mu1=30,mu2=25,sd1=7,sd2=8)
+library(epiDisplay)
+n.for.2means(mu1=30,mu2=25,sd1=7,sd2=8)
+n.for.2p(0.5,.2,power=0.9)
+#========= EXAMPLE=============================================================
+#Descriptive analysis
+setwd("G:\\My Drive\\747-341 Module\\1-2567")
+read.csv("dexabia.csv") -> b
+#========= EXAMPLE=============================================================
+#Descriptive analysis
+setwd("G:\\My Drive\\747-341 Module\\1-2567\\Dataset")
+read.csv("dexabia.csv") -> b
+str(b)
+#Calculate mode variable age
+b$agenew <- round(b$age,0)
+table(b$agenew)
+#calculate descriptive statistic for all variables
+summary(b)
+#create graph for 1 continuous variable
+qqnorm(b$age)
+qqline(b$age,col="red",lwd=2)
+#create graph for 1 continuous variable
+qqnorm(b$age)
+qqline(b$age,col="red",lwd=2)
+#Histogram
+hist(b$age)
+hist(b$age,breaks=20,col="yellow",main="")
+mtext(side=1,"Age",padj=4)
+mtext(side=3,"Frequency",adj=-0.3, padj=-2)
+#Histogram
+hist(b$age)
+hist(b$age,breaks=20,col="yellow",main="")
+mtext(side=1,"Age",padj=4)
+?hist
+hist(b$age,breaks=20,col="yellow",main="",xlab="")
+hist(b$age,breaks=20,col="yellow",main="",xlab="",ylab="")
+hist(b$age,breaks=20,col="yellow",main="",xlab="",ylab="",las=1)
+mtext(side=1,"Age",padj=4)
+mtext(side=3,"Frequency",adj=-0.3, padj=-2)
+mtext(side=3,"Frequency",adj=-0.2, padj=-2)
+hist(b$age,breaks=20,col="yellow",main="",xlab="",ylab="",las=1)
+mtext(side=1,"Age",padj=4)
+mtext(side=3,"Frequency",adj=-0.2, padj=-2)
+#Boxplot
+boxplot(b$age)
+hist(b$age,breaks=20,col="yellow",main="Distribution of age",xlab="",ylab="",las=1)
+mtext(side=1,"Age",padj=4)
+mtext(side=3,"Frequency",adj=-0.2, padj=-2)
+#Boxplot
+boxplot(b$age)
+#Boxplot
+boxplot(b$age)
+boxplot(b$age,col="pink")
+mtext(side=3,"Weight (grams)", adj=-0.1,padj=-1.5)
+mtext(side=3,"Age (Years)", adj=-0.1,padj=-1.5,las=1)
+boxplot(b$age,col="pink")
+mtext(side=3,"Age (Years)", adj=-0.1,padj=-1.5,las=1)
+#Boxplot
+boxplot(b$age)
+boxplot(b$age,col="pink",las=1)
+mtext(side=3,"Age (Years)", adj=-0.1,padj=-1.5)
+#Stem and leaf plot
+stem(b$age)
+#Dot plot
+stripchart (b$age)
+stripchart (b$age,method="stack")
+stripchart (b$age,method="stack",pch=1)
+stripchart (b$age,method="stack",pch=1,col="red",frame.plot=F)
+stripchart (b$age,method="stack",pch=1,col="red",frame.plot=F,at=0.05)
+#Create graph for 2 variables (One continuous and one categorical variable)
+boxplot(b$wt~b$sex)
+boxplot(b$wt~b$sex,las=1,col=c("blue","pink"))
+boxplot(b$wt~b$sex,las=1,col=c("blue","pink"),las=1,xlab="",ylab="")
+b$sex <- as.factor(b$sex)
+levels(b$sex) <- c("male","female")
+boxplot(b$wt~b$sex,las=1,col=c("blue","pink"),las=1,xlab="",ylab="")
+mtext(side=3,"Weight (Kg)", adj=-0.1,padj=-1.5)
+mtex(side=1,"Gender",adj=0.5)
+mtext(side=1,"Gender",adj=0.5)
+mtext(side=1,"Gender",adj=-0.5)
+mtext(side=1,"Gender",padj=-0.5)
+mtext(side=1,"Gender",padj=-1.5)
+mtext(side=1,"Gender",padj=1.5)
+mtext(side=1,"Gender",padj=2)
+mtext(side=1,"Gender",padj=2.5)
+mtext(side=1,"Gender")
+mtext(side=1,"Gender",padj=3)
+boxplot(b$wt~b$sex,las=1,col=c("blue","pink"),las=1,xlab="",ylab="")
+mtext(side=3,"Weight (Kg)", adj=-0.1,padj=-1.5)
+mtext(side=1,"Gender",padj=3)
+#Both are continuous variables
+plot (b$ht,b$wt)
+#Create graph for more than 2 variables
+pairs(b[,3:6])
+#Bar plot and pie chart
+plot(b$sex)
+sexfreq <- table(b$sex)
+barplot(sexfreq)
+par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(pn$ped), xlim=c(0,150),
+las=1, cex.names=1.0, horiz=T, col="pink", width=0.8)
+barp <- barplot(table(b$sex), xlim=c(0,150),
+las=1, cex.names=1.0, horiz=T, col="pink", width=0.8)
+barp <- barplot(table(b$sex), xlim=c(0,150),
+las=1, cex.names=1.0, col="pink", width=0.8)
+par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex), xlim=c(0,150),
+las=1, cex.names=1.0, horiz=F, col="pink", width=0.8)
+# Display number of frequency at the top of each bar val <- data.frame(table(pn$ped))
+text(val$Freq[c(1:nrow(val))]+5,barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val))])
+par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8)
+#Bar plot and pie chart
+plot(b$sex)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8)
+# Display number of frequency at the top of each bar
+val <- data.frame(table(d$sex))
+# Display number of frequency at the top of each bar
+val <- data.frame(table(b$sex))
+text(val$Freq[c(1:nrow(val))]+5,barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val))])
+val
+barp
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8)
+# Display number of frequency at the top of each bar
+val <- data.frame(table(b$sex))
+text(val$Freq[c(1:nrow(val))]+5,barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val))])
+text(val$Freq[c(1:nrow(val))]+5)
+text(val$Freq[c(1:nrow(val))])
+barp[c(1:nrow(val)),1]
+val$Freq[c(1:nrow(val)]
+val$Freq[c(1:nrow(val))]
+text(barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val))])
+val
+text(barp[c(1:nrow(val)),3],val$Freq[c(1:nrow(val))])
+text(barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val),3)])
+text(barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val),3)])
+dim(val)
+text(barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val),2)])
+text(val$Freq[c(1:nrow(val))],barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val),2)])
+text(val$Freq[c(1:nrow(val),1)],barp[c(1:nrow(val)),1],val$Freq[c(1:nrow(val),2)])
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8)
+# Display number of frequency at the top of each bar
+text(x = barp, y = counts, label = counts,
+pos = 3, cex = 1, col = "black")
+val
+barp
+table(b$sex)
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+sexfreq <- table(b$sex)
+sexfreq
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,200))
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+sexfreq
+#Bar plot and pie chart
+plot(b$sex)
+sexfreq <- table(b$sex)
+sexfreq
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,200))
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+ิbarp
+barp
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,200))
+# Display number of frequency at the top of each bar
+text(x = barp, y = table(b$sex), label = table(b$sex),
+pos = 3, cex = 1, col = "black")
+#========= EXAMPLE=============================================================
+#Descriptive analysis
+setwd("G:\\My Drive\\747-341 Module\\1-2567\\Dataset")
+read.csv("dexabia.csv") -> b
+str(b)
+#Bar plot and pie chart
+plot(b$sex)
+b$sex <- as.factor(b$sex)
+levels(b$sex) <- c("male","female")
+#Bar plot and pie chart
+plot(b$sex)
+sexfreq <- table(b$sex)
+barplot(sexfreq)
+pie(sexfreq)
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,200))
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+sexfreq
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 2, cex = 1, col = "black")
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,210))
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+#par(mfrow=c(1,1), oma=c(3,4,3,2),mar=c(3,4,3,2),
+#mgp=c(0.5,0.5,0.5),tcl=-0.1,las=1)
+barp <- barplot(table(b$sex),las=1, cex.names=1.0, col="pink", width=0.8,ylim=c(0,250))
+# Display number of frequency at the top of each bar
+text(x = barp, y = sexfreq, label = sexfreq,
+pos = 3, cex = 1, col = "black")
+sexfreq <- table(b$sex)
+pct <- as.data.frame(proportions(sexfreq))*100)
+pct <- as.data.frame(proportions(sexfreq)*100)
+pct
+pie(sexfreq,labels = paste(pct$Var1, round(pct$Freq,2), "%"), col=heat.colors(2),cex=1)
+pie(sexfreq)
+str(b)
+#----------------------- Stack bar chart using ggplot package-------------------------
+read.csv("likert.csv") -> d
+str(d)
+data_long <- gather(d, key = "question", value = "score", -id)
+#----------------------- Stack bar chart using ggplot package-------------------------
+library(ggplot2)
+library(tidyr)
+data_long <- gather(d, key = "question", value = "score", -id)
+ggplot(data_long, aes(x = question, fill = as.factor(score))) +
+geom_bar(position = "fill") +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+#calculate percent
+data_long <- data_long %>%
+group_by(question, score) %>%
+summarize(count = n()) %>%
+mutate(percentage = count / sum(count) * 100)
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = paste0(round(percentage, 1), "%")),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+library(dplyr)
+#calculate percent
+data_long <- data_long %>%
+group_by(question, score) %>%
+summarize(count = n()) %>%
+mutate(percentage = count / sum(count) * 100)
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = paste0(round(percentage, 1), "%")),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+scale_y_continuous(labels = percent_format()) +
+theme_minimal()
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Percentage", fill = "Score") +
+scale_y_continuous(labels = percent_format()) +
+theme_minimal()
+library(scale)
+library(scales)
+library(scale)
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+install.packages("scales")
+library(scale)
+library(scales)
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Percentage", fill = "Score") +
+scale_y_continuous(labels = percent_format()) +
+theme_minimal()
+#----------------------- Stack bar chart using ggplot package-------------------------
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(scales)
+read.csv("likert.csv") -> d
+str(d)
+data_long <- gather(d, key = "question", value = "score", -id)
+ggplot(data_long, aes(x = question, fill = as.factor(score))) +
+geom_bar(position = "fill") +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+#calculate percent
+data_long <- data_long %>%
+group_by(question, score) %>%
+summarize(count = n()) %>%
+mutate(percentage = count / sum(count) * 100)
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Percentage", fill = "Score") +
+scale_y_continuous(labels = percent_format()) +
+theme_minimal()
+# สร้าง stacked bar chart พร้อมเปอร์เซ็นต์
+ggplot(data_long, aes(x = question, y = percentage, fill = as.factor(score))) +
+geom_bar(stat = "identity", position = "fill") +
+geom_text(aes(label = round(percentage, 1)),
+position = position_fill(vjust = 0.5), size = 3) +
+labs(x = "Question", y = "Percentage", fill = "Score") +
+scale_y_continuous(labels = function(x) x * 100) +
+theme_minimal()
+data_long <- gather(d, key = "question", value = "score", -id)
+ggplot(data_long, aes(x = question, fill = as.factor(score))) +
+geom_bar(position = "fill") +
+labs(x = "Question", y = "Proportion", fill = "Score") +
+theme_minimal()
+#--------- epidisplay package--------------
+library(epiDisplay)
+tabpct(b$agegr,b$dexagr)
+tabpct(b$agegr,b$dexagr, percent="row")
+#construct dexa group
+b$dexagr <- ifelse(b$dexa<40,"normal","fat")
+table(b$dexagr)
+#dexa and sex
+ctab <- table(b$dexagr,b$sex)
+barplot(ctab,beside=T)
+barplot(ctab,beside=T,col=c("blue","pink"),names=c("Male","Female"),las=1)
+legend("topleft",inset=c(0.03,0.04),c("Fat","Normal"),fill=c("blue","pink"),adj=c(0.02,0.1))
+mtext(side=3,adj=-0.06,"Percent")
+mosaicplot(ctab,col=rainbow(length(labels)),main="Body fat percentage by gender group",cex=1)
+#construc bmi variable
+b$bmi <- b$wt/(b$ht/100)^2
+summary(b$bmi)
+b$bmigr <- ifelse(b$bmi<25,"normal","overweight")
+table(b$bmigr)
+t3 <- table(b$bmigr,b$agegr,b$dexagr)
+t3t1 <- prop.table(t3[,,1],2)*100
+t3t1
+t3t2 <- prop.table(t3[,,2],2)*100
+t3t2
+t3 <- table(b$bmigr,b$agegr,b$dexagr)
